@@ -15,7 +15,7 @@
 
 <h3>POST及檔案上傳</h3>
 <form action="target.php" method="post" enctype="multipart/form-data">
-    <input type="text" name="name">
+    <input type="text" name="type">
     <input type="file" name="img" id="img">
     <input type="submit" value="送出">
 
