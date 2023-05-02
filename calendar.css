@@ -1,6 +1,7 @@
 *{
     box-sizing: border-box;
 }
+/* 主容器 */
 .contianer{
     display:flex;
     flex-wrap: wrap;
@@ -8,6 +9,7 @@
     margin-top: 1px;
     margin-left: 1px;
 }
+/* 每一天的格子 */
 .contianer>div{
     background-color: white;
     flex-basis: calc(100% / 7);
@@ -17,15 +19,32 @@
     height:100px;
 
 }
-.contianer>.tittle{
+/* 星期日-六 */
+.contianer>.tittle{  
     height: 30px;
     background-color: #ccc;
     flex-basis: calc(100% / 7);
 }
+/* 每週六日 */
 .contianer>.holiday{
     background-color: pink;
 }
+/* 年的標題 */
 .years{
-    font-size: large;
+    font-size: 48px;
     text-align: center;
+}
+/* 月的切換 */
+.a-month{
+    font-size: 24px;
+    text-align: center;
+}
+/* 特別節日字體 */
+.holiday-font{
+   
+    color: red;
+}
+/* 特別節日框 */
+.contianer>.holiday-day{
+    background-color: pink;
 }

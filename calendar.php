@@ -51,14 +51,21 @@ if($month==1){
 ?>
 <!--假日資料庫 -->
 <?php
-$holiday = ['5-1'=>'勞動節'];
+$holiday = ['2023-1-1'=>'元旦','2023-1-2'=>'補假','2023-1-20'=>'彈性放假日','2023-1-21'=>'除夕','2023-1-22'=>'春節',
+'2023-1-23'=>'春節','2023-1-24'=>'春節','2023-1-25'=>'補假','2023-1-26'=>'補假',
+'2023-1-27'=>'彈性放假日','2023-2-27'=>'彈性放假日','2023-2-28'=>'和平記念日',
+'2023-4-3'=>'彈性放假日','2023-4-4'=>'國際兒童節','2023-4-5'=>'清明節',
+'2023-5-1'=>'勞動節','2023-6-22'=>'端午節','2023-6-23'=>'彈性放假日','2023-9-29'=>'中秋節',
+'2023-10-9'=>'彈性放假日','2023-10-10'=>'國慶日'];
 ?>
 <!-- #flexbox -->
 <div class="years"><?=$year?>年</div>
 <!-- 上一月，這一月，下一月 -->
+<div class="a-month">
 <a href="calendar.php?year=<?=$prevyear;?>&month=<?=$prevmonth;?>"><?=$prevmonth;?>月</a>
 <a href="calendar.php?year=<?=$year;?>&month=<?=$month;?>"><?=$month;?>月</a>
 <a href="calendar.php?year=<?=$nextyear;?>&month=<?=$nextmonth;?>"><?=$nextmonth;?>月</a>
+</div>
 <hr>
 <div class="contianer">
     <div class="tittle">星期日</div>
@@ -75,19 +82,41 @@ $holiday = ['5-1'=>'勞動節'];
     // 需要使用explode()取出$data[]日期和判斷空白
     for($i=0;$i<count($data);$i++){
 
-        $today=date('Y-n-j');
-        $d=($data[$i]=="&nbsp;")?'&nbsp;':explode($data[$i],'-')[2];  #取$i日期
+        // $today=date('n-j');
         
-        if($i%7==0 or $i%7==6){
-            echo "<div class='holiday'>";
-            echo $data[$i];
-            echo "</div>";
+        $d=($data[$i]=="&nbsp;")?'&nbsp;':explode('-',$data[$i])[2];  #取$i日期
+        
+        if($i%7==0 or $i%7==6) {
+            if(isset($holiday[$data[$i]])){
+                 $days=$holiday[$data[$i]];
+                echo "<div class='holiday-day'>";
+                echo $d;
+                echo "<br>";
+                echo "<span class='holiday-font'>$days</span>";
+                echo "</div>";
+
+            }else{
+                echo "<div class='holiday'>";
+                echo $d;
+                echo "</div>";
+                }
         }else{
-            echo "<div>";   
-            echo $data[$i];
-            echo "</div>";
+            if(isset($holiday[$data[$i]])){
+                $days=$holiday[$data[$i]];
+               echo "<div class='holiday-day'>";
+               echo $d;
+               echo "<br>";
+               echo "<span class='holiday-font'>$days</span>";
+               echo "</div>";
+
+           }else{
+                echo "<div>";
+                $days=(isset($holiday[$data[$i]]))?$holiday[$data[$i]]:"";
+                echo $d;                
+                echo "</div>";
     }
     }
+}
    ?>
     
 </div>
