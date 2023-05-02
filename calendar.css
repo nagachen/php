@@ -1,0 +1,24 @@
+*{
+    box-sizing: border-box;
+}
+.contianer{
+    display:flex;
+    flex-wrap: wrap;
+    
+    margin-top: 1px;
+    margin-left: 1px;
+}
+.contianer>div{
+    background-color: white;
+    flex-basis: calc(100% / 7);
+    border: 1px solid black;
+    margin-top: -1px;
+    margin-left: -1px;
+    height:100px;
+    background-color: rosybrown;
+}
+.contianer>.tittle{
+    height: 30px;
+    background-color: #ccc;
+    flex-basis: calc(100% / 7);
+}
