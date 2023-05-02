@@ -15,10 +15,13 @@
     margin-top: -1px;
     margin-left: -1px;
     height:100px;
-    background-color: rosybrown;
+
 }
 .contianer>.tittle{
     height: 30px;
     background-color: #ccc;
     flex-basis: calc(100% / 7);
+}
+.contianer>.holiday{
+    background-color: pink;
 }

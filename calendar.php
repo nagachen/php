@@ -75,10 +75,16 @@ if($month==1){
 
     <?php 
     for($i=0;$i<count($data);$i++){
-        echo "<div>";
-
-        echo $data[$i];
-        echo "</div>";
+        
+        if($i%7==0 or $i%7==6){
+            echo "<div class='holiday'>";
+            echo $data[$i];
+            echo "</div>";
+        }else{
+            echo "<div>";   
+            echo $data[$i];
+            echo "</div>";
+    }
     }
    ?>
     
